@@ -120,4 +120,3 @@ The prompt engineering techniques are implemented in `app.py`.
 * The Gemini API key is stored server-side through the `GEMINI_API_KEY` environment variable and is never sent to the browser.
 * The API key should not be committed to Git.
 * `.env` files and virtual environments are excluded through `.gitignore`.
-* This is a learning project rather than a production-hardened application. It does not currently include rate limiting, authentication, or comprehensive input validation.
