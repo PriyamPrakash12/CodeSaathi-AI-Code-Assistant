@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeSaathi — AI Code Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">&#9670;</span>
+    <span class="brand-name">CodeSaathi</span>
+  </div>
+
+  <nav class="mode-tabs" id="modeTabs">
+    <button class="mode-tab active" data-mode="explain">Explain</button>
+    <button class="mode-tab" data-mode="generate">Generate</button>
+    <button class="mode-tab" data-mode="fix">Fix</button>
+    <button class="mode-tab" data-mode="refactor">Refactor</button>
+  </nav>
+
+ <!--<div class="lang-select">
+    <label for="provider">Model</label>
+    <select id="provider">
+      <option value="claude" selected>Claude</option>
+      <option value="chatgpt">ChatGPT</option>
+      <option value="gemini">Gemini</option>
+    </select>
+  </div>-->
+
+  <div class="lang-select">
+    <label for="language">Language</label>
+    <select id="language">
+      <option value="python" selected>Python</option>
+      <option value="javascript">JavaScript</option>
+      <option value="typescript">TypeScript</option>
+      <option value="java">Java</option>
+      <option value="go">Go</option>
+      <option value="rust">Rust</option>
+      <option value="c++">C++</option>
+    </select>
+  </div>
+</header>
+
+<main class="workbench">
+
+  <section class="pane input-pane">
+    <div class="pane-header" id="inputHeader">Paste your code</div>
+
+    <!-- Explain mode extra control -->
+    <div class="field-row" id="skillLevelRow">
+      <label for="skillLevel">Explain for</label>
+      <select id="skillLevel">
+        <option value="beginner" selected>Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="expert">Expert</option>
+      </select>
+    </div>
+
+    <!-- Generate mode extra control -->
+    <div class="field-row hidden" id="descriptionRow">
+      <label for="description">Describe what you want</label>
+      <textarea id="description" class="text-input" rows="3" placeholder="e.g. a function that checks if a string is a palindrome"></textarea>
+    </div>
+
+    <!-- Fix mode extra control -->
+    <div class="field-row hidden" id="errorRow">
+      <label for="errorMessage">Error message</label>
+      <textarea id="errorMessage" class="text-input" rows="2" placeholder="Paste the error / traceback here"></textarea>
+    </div>
+
+    <!-- Refactor mode extra control -->
+    <div class="field-row hidden" id="goalRow">
+      <label for="goal">Refactor goal (optional)</label>
+      <input id="goal" class="text-input" type="text" placeholder="e.g. improve readability, reduce duplication">
+    </div>
+
+    <!-- Code input (used by explain / fix / refactor) -->
+    <div class="field-row" id="codeRow">
+      <textarea id="codeInput" class="code-input" spellcheck="false" placeholder="def example():&#10;    pass"></textarea>
+    </div>
+
+    <button class="run-btn" id="runBtn">
+      <span id="runBtnLabel">Explain code</span>
+    </button>
+  </section>
+
+  <section class="pane output-pane">
+    <div class="pane-header">Result</div>
+    <div class="output-body" id="outputBody">
+      <div class="empty-state">
+        <p>Nothing here yet.</p>
+        <p class="empty-sub">Paste some code on the left and hit run.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
