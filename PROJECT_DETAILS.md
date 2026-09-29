@@ -18,6 +18,6 @@
 - Goal-directed constraints (Refactor mode)
 - Structured JSON output parsing across all modes
 
-## 3. Links (fill in after completing steps below)
+## 3. Links
 - **Google Drive folder:**
-- **Live hosted link:**
+- **Live hosted link:*https://code-saathi-ai-code-assistant-coral.vercel.app*
